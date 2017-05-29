@@ -121,12 +121,12 @@ The `knitr` package provides many options to finely control how your figures are
 - all the figures will be 6.5 x 4 inches and centered in the text.
 
 
-```r
+````r
 ```{r figure-setup, echo=FALSE, include=FALSE}
 knitr::opts_chunk$set(fig.path="figures/", fig.width=6.5,
                       fig.height=4, fig.align="center")
 ```
-```
+````
 
 
 
