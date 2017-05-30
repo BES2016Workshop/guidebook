@@ -23,11 +23,11 @@ Box xx: What is the difference between repeatability and reproducibility?
 
 Did you ever have to redo an analysis 6 months later, and it was difficult. You forgot which one of the 15 files with "final" in their names was really the one you should have used? Have you ever spent several hours assembling an intricate figure with your favorite drawing program, just to realize that your collaborators had forgotten to send you the latest batch of data? Writing a reproducible report alleviates some of these hurdles. By automating how the figures and the statistics in your report are generated, you are leaving a code trail that you, your collaborators, or your readers can take, and that leads to your original data. This path to the raw data increases the transparency of your science. However, in order for the six-month-in-the-future you, your collaborators, and your readers, to be able to take this path, it is important that you organize your code and your data files consistently.
 
-Not only writing a reproducible report increases the transparency of your science, it reduces the mistakes that result from copying and pasting across software. Keeping the content of your manuscript in sync with the output of your statistical program is challenging. By specifying directly the output of your model in your text, it is easier to make sure you are referring to the correct model with the correct parameters. To be the devil's advocate, one could argue that the additional code that will need to be written to integrate the results within the text could lead to additional errors. However, these bugs are possible to detect (contrary to mistakes done by copying and pasting the correct numbers), and their consequences can be assessed by re-running the code generating the manuscript after fixing them.
+Not only does writing a reproducible report increase the transparency of your science, it reduces the mistakes that result from copying and pasting across software. Keeping the content of your manuscript in sync with the output of your statistical program is challenging. By specifying directly the output of your model in your text, it is easier to make sure you are referring to the correct model with the correct parameters. To be the devil's advocate, one could argue that the additional code that will need to be written to integrate the results within the text could lead to additional errors. However, these bugs are possible to detect (contrary to mistakes done by copying and pasting the correct numbers), and their consequences can be assessed by re-running the code generating the manuscript after fixing them.
 
 Writing a reproducible report allows you to tell a much richer story than the narrative in the report by itself does. The text in your report does not usually show the different approaches and analyses you have tried before coming up with the final results. With a reproducible report, you can provide readers who want to know more about how you obtained the results in your paper, the approaches you tried and the their results. These can be included as supplementary material or tagged in the history of your version control system.
 
-To make your report reproducible, your code will need to be self-contained. As a consequence, you will be able to re-use the code you wrote for one project in another one. Therefore, if initially it might slow you down to make your code reproducible, it is an investment in the future as you will be able to re-use and build up on it in the future. Additionally, others might be able to also re-use your code, and apply it for their own data. Your efforts may speed up the overall scientific process (you or your colleagues won't need to re-invent the wheel for each project), and you could get more citations on your papers.
+To make your report reproducible, your code will need to be self-contained. As a consequence, you will be able to re-use the code you wrote for one project in another one. Therefore, if initially it might slow you down to make your code reproducible, it is an investment in the future as you will be able to re-use and build upon it in the future. Additionally, others might be able to also re-use your code, and apply it for their own data. Your efforts may speed up the overall scientific process (you or your colleagues won't need to re-invent the wheel for each project), and you could get more citations on your papers.
 
 It can feel daunting to get started with writing a reproducible report because of the technical skills and knowledge required. However, a partially reproducible report is better than a non-reproducible one. So each step you take towards reproducibility is worth taking, and sets you up to take the next one for the next project.
 
@@ -37,11 +37,11 @@ It can feel daunting to get started with writing a reproducible report because o
 
 There are as many ways to approach a reproducible report as there are scientists. However, there are general principles that will help you produce a reproducible report. As the number of scientists who are writing reproducible manuscripts increases, there are more examples that are publicly available that you can study and use to set up your analysis [we need to select some examples].
 
-One of the challenges of any scientific enterprise is that it can be difficult to know in advance what will be in the final version of your manuscript. However, some initial planning of your analysis will be helpful to getting your data, scripts, results, figures, and text organized. Things will probably change as your analysis progresses, but having this initial plan will help you.
+One of the challenges of any scientific enterprise is that it can be difficult to know in advance what will be in the final version of your manuscript. However, some initial planning of your analysis will be helpful to get your data, scripts, results, figures, and text organized. Things will probably change as your analysis progresses, but having this initial plan will help you.
 
 ### Choose a directory structure to organize your projects
 
-Depending of your field, the tools you use, and your preferences, you may need to adapt these recommendations, but in general your project will contain at least a variation of:
+Depending on your field, the tools you use, and your preferences, you may need to adapt these recommendations, but in general your project will contain at least a variation of:
 
 * **raw-data** this directory will contain your raw data. This is the data as
   they have been collected/entered in the spreadsheet/database. They should
@@ -68,12 +68,12 @@ This is valid for your data files as well as your code, use short and informativ
 
 ### Document the content of your files
 
-In your code, write comments that describe what your scripts do, what is the format of the input for your functions, and what is the expected format of the output. For files that can't be commented easily, include README files in your directories that describe what is in each file, where the data is coming from, links to relevant papers or data repositories, the units of the measures included in the columns.
+In your code, write comments that describe what your scripts do, the format of the input for your functions, and the expected format of the output. For files that can't be commented easily, include README files in your directories that describe what is in each file, where the data is coming from, links to relevant papers or data repositories, the units of the measures included in the columns.
 
 
 ### Take advantage of literate programming
 
-When writing your report avoid to "hard code" any values in your manuscript and instead generate them directly. For instance, instead of writing "we analyzed 19864 observations", write "we analyzed `r nrow(toad_survival)` observations". RMarkdown also supports parameters which can be useful to develop the report on a subset of the data so it can be assembled quickly, but you can easily switch to the full dataset by only changing the value of one variable. More generally, automate wherever possible.
+When writing your report avoid "hard coding" any values in your manuscript and instead generate them directly. For instance, instead of writing "we analyzed 19864 observations", write "we analyzed `r nrow(toad_survival)` observations". RMarkdown also supports parameters which can be useful to develop the report on a subset of the data so it can be assembled quickly, but you can easily switch to the full dataset by only changing the value of one variable. More generally, automate wherever possible.
 
 
 ### Write functions for everything
@@ -86,7 +86,7 @@ As mentioned earlier, take advantage of R's functional approach to make each ste
 Version control allows you to record the history of your project, and to go back to previous version of your code, allowing you to pinpoint where and when you made a change that started to break your code. Historically, version control has been developed to keep track of the development of code, but it works relatively well to also keep track of the text of your manuscript. Currently, git is the most popular version control software, and GitHub is a service that allows you to host and share your projects versioned with git easily.
 
 
-## How to use RMardown?
+## How to use RMarkdown?
 
 The previous section gave general advice on best practices to write reproducible reports, here we will focus on how to apply them in R. Currently, the most common way people practice literate programming in R is through RMarkdown.
 
