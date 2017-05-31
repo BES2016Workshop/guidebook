@@ -1,0 +1,215 @@
+
+
+## What's a reproducible report?
+
+For the purposes of this guide, a report is a scientific document that contains not only the text that makes up the manuscript, but also the code that generates the figures and the statistics that are reported in your manuscript. Ideally, the report is part of a self-contained project that may contain your data, your initial exploratory analyses, the final product, and the code needed to generate them.
+
+This manuscript can be a scientific article, a conference presentation, a technical report, or a document to share your progress with your collaborators. The end product may not show any code and therefore it may not look like it was generated differently from other documents.
+
+Typically a report contains code for data manipulation, data analysis, and figure generation alongside the text that constitutes the heart of the report. Because of this hybrid nature, if left unchecked, this mix can lead to a big mess that can be difficult to maintain and debug. In this guide, we will provide you with some advice on how to keep your report manageable.
+
+
+---
+
+Box xx: What is the difference between repeatability and reproducibility?
+
+**Repeatability** describes how close are the results of an experiment conducted under the same conditions (same instruments, same operators, etc.). **Reproducibility** describes how close are the results of an experiment conducted under similar but different conditions. Repeatability ensures that you would obtain similar results when running your code on your own laptop at different times; while reproducibility ensures that giving your code to someone else would allow them to obtain the same results as yours.
+
+---
+
+
+
+## Why a reproducible report?
+
+Did you ever have to redo an analysis 6 months later, and it was difficult. You forgot which one of the 15 files with "final" in their names was really the one you should have used? Have you ever spent several hours assembling an intricate figure with your favorite drawing program, just to realize that your collaborators had forgotten to send you the latest batch of data? Writing a reproducible report alleviates some of these hurdles. By automating how the figures and the statistics in your report are generated, you are leaving a code trail that you, your collaborators, or your readers can take, and that leads to your original data. This path to the raw data increases the transparency of your science. However, in order for the six-month-in-the-future you, your collaborators, and your readers, to be able to take this path, it is important that you organize your code and your data files consistently.
+
+Not only does writing a reproducible report increase the transparency of your science, it reduces the mistakes that result from copying and pasting across software. Keeping the content of your manuscript in sync with the output of your statistical program is challenging. By specifying directly the output of your model in your text, it is easier to make sure you are referring to the correct model with the correct parameters. To be the devil's advocate, one could argue that the additional code that will need to be written to integrate the results within the text could lead to additional errors. However, these bugs are possible to detect (contrary to mistakes done by copying and pasting the correct numbers), and their consequences can be assessed by re-running the code generating the manuscript after fixing them.
+
+Writing a reproducible report allows you to tell a much richer story than the narrative in the report by itself does. The text in your report does not usually show the different approaches and analyses you have tried before coming up with the final results. With a reproducible report, you can provide readers who want to know more about how you obtained the results in your paper, the approaches you tried and the their results. These can be included as supplementary material or tagged in the history of your version control system.
+
+To make your report reproducible, your code will need to be self-contained. As a consequence, you will be able to re-use the code you wrote for one project in another one. Therefore, if initially it might slow you down to make your code reproducible, it is an investment in the future as you will be able to re-use and build upon it in the future. Additionally, others might be able to also re-use your code, and apply it for their own data. Your efforts may speed up the overall scientific process (you or your colleagues won't need to re-invent the wheel for each project), and you could get more citations on your papers.
+
+It can feel daunting to get started with writing a reproducible report because of the technical skills and knowledge required. However, a partially reproducible report is better than a non-reproducible one. So each step you take towards reproducibility is worth taking, and sets you up to take the next one for the next project.
+
+
+## How to do a report?
+
+
+There are as many ways to approach a reproducible report as there are scientists. However, there are general principles that will help you produce a reproducible report. As the number of scientists who are writing reproducible manuscripts increases, there are more examples that are publicly available that you can study and use to set up your analysis [we need to select some examples].
+
+One of the challenges of any scientific enterprise is that it can be difficult to know in advance what will be in the final version of your manuscript. However, some initial planning of your analysis will be helpful to get your data, scripts, results, figures, and text organized. Things will probably change as your analysis progresses, but having this initial plan will help you.
+
+### Choose a directory structure to organize your projects
+
+Depending on your field, the tools you use, and your preferences, you may need to adapt these recommendations, but in general your project will contain at least a variation of:
+
+* **raw-data** this directory will contain your raw data. This is the data as
+  they have been collected/entered in the spreadsheet/database. They should
+  never be modified by hand. They are the starting point of your analyses.
+* **data** or **processed-data** this directory will contain your modified raw
+  data. Some scripts in your analysis will transform the raw data into these
+  processed data. These scripts will for instance reformat the data in a "tidy"
+  format, remove outliers and missing points as needed, or fix spelling
+  mistakes.
+* **figures** will be the directory where all the figures to be used in the main
+  text or as supplementary material will be generated.
+* **src**, **R**, **scripts**, (or similar) will contain the code that you write
+  for your analysis.
+
+The manuscript itself could be stored inside a **doc** or **manuscript** directory. However, because of the way R works, I find it easier to store the manuscript file at the root of the project directory.
+
+All your files should be contained inside this directory structure, so you can easily share it with other people.
+
+
+### Give informative names to your files
+
+This is valid for your data files as well as your code, use short and informative names that clearly convey what your file contain. Making your file names consistent is easier for people to find their way around your project, and easier to write code to parse the content of the directories.
+
+
+### Document the content of your files
+
+In your code, write comments that describe what your scripts do, the format of the input for your functions, and the expected format of the output. For files that can't be commented easily, include README files in your directories that describe what is in each file, where the data is coming from, links to relevant papers or data repositories, the units of the measures included in the columns.
+
+
+### Take advantage of literate programming
+
+When writing your report avoid "hard coding" any values in your manuscript and instead generate them directly. For instance, instead of writing "we analyzed 19864 observations", write "we analyzed `r nrow(toad_survival)` observations". RMarkdown also supports parameters which can be useful to develop the report on a subset of the data so it can be assembled quickly, but you can easily switch to the full dataset by only changing the value of one variable. More generally, automate wherever possible.
+
+
+### Write functions for everything
+
+As mentioned earlier, take advantage of R's functional approach to make each step of your analysis a function. It allows you to minimize the number of global variables that will be in your environment and therefore minimize the chance of using the incorrect value in your calculations. Functions also make your intentions more explicit, because it forces you to break down your analysis into smaller tasks. By having, small functions that only do one thing, you can have more control and reduce the chances of introducing bugs: for instance you can test the format of the input and of the output of your functions allowing you to test that they behave as expected. You can then build on complexity by putting these functions together by stringing together these small modular pieces. By giving informative and consistent names to your functions, reading your code to understand what it does will be easier. By writing functions, you facilitate the re-use and automation within your project, so if you find an error or need to change a parameter, you will only have to do it once.
+
+
+### Use version control
+
+Version control allows you to record the history of your project, and to go back to previous version of your code, allowing you to pinpoint where and when you made a change that started to break your code. Historically, version control has been developed to keep track of the development of code, but it works relatively well to also keep track of the text of your manuscript. Currently, git is the most popular version control software, and GitHub is a service that allows you to host and share your projects versioned with git easily.
+
+
+## How to use RMarkdown?
+
+The previous section gave general advice on best practices to write reproducible reports, here we will focus on how to apply them in R. Currently, the most common way people practice literate programming in R is through RMarkdown.
+
+RMarkdown is a file format (typically saved with the `Rmd` extension) that can contain: a YAML header, text, code chunks, and inline code. The `rmarkdown` package converts this file into a report most commonly into HTML or PDF.
+
+The `rmarkdown` package automates a multi-step process (Fig. xx). Under the hood, it calls the `knitr` package that converts the Rmd file into a markdown file. In the process, `knitr` takes all the code chunks and the inline code, run them through R (or other programs), capture their output, and incorporates them in the report. Afterwards, `rmarkdown` calls the pandoc program (it is an external program that is not related to R) that can take the markdown file and converts to a variety of formats. For pandoc to generate PDF files, you will need a functional installation of LaTeX that you will need to install separately.
+
+The `bookdown` package comes in to take care of numbering the figures and tables, as well as dealing with citations. As its name suggests, this package can be used to author books, but it is also well-suited to help generating reports.
+
+![Relations between the different tools used to generate reports fromm RMarkdown](drawing.png)
+
+
+### the YAML header
+
+The YAML header is at the top of your file, it is delineated by three dashes (`---`) at the top and at the bottom of it. It is optional, but can be used to specify:
+
+* the characteristics of your document: the title, authors, date of creation.
+* the arguments to pass to pandoc to control the format of the output as
+  well as additional information such as the bibliography file and the
+  formatting of the list of references.
+* parameters for your report
+
+
+### Code chunks
+
+Code chunks are	interspersed within the text of the report. They are delineated by three backticks (` ``` `) at the top and at the bottom of it. The top backticks are followed by a curly bracket that specify: (1) the language in which the code chunk is written, (2) the name of the chunk (optional but good practice), (3) `knitr` options that control whether and how the code, the output, or the figure are interpreted and displayed. Everything that comes after the name of the chunk has to be a valid R expression: the strings need be quoted, the arguments are separated by commas, and logical values (TRUE/FALSE) need to be capitalized.
+
+
+### How to deal with figures?
+
+The `knitr` package provides many options to finely control how your figures are going to be generated. Some of `knitr`'s options can be set individually for each chunk or be set globally. For a reproducible report, it is common practice to have chunk at the beginning of the report that sets default options for the figures. It is also usually a good place to load all the packages you will need for your analysis. For instance the following chunk will do the following:
+
+- all the figures generated by the report will be placed in the `figures/` sub-directory
+- all the figures will be 6.5 x 4 inches and centered in the text.
+
+
+````r
+```{r figure-setup, echo=FALSE, include=FALSE}
+knitr::opts_chunk$set(fig.path="figures/", fig.width=6.5,
+                      fig.height=4, fig.align="center")
+library(tidyverse)
+```
+````
+
+Additionally, this chunk will be named `figure-setup`, and we use the `echo=FALSE` option so the code for the chunk will not be displayed in the report, and use the `include=FALSE` option so no output produced by this chunk will be included in the report.
+
+For our figures, we can now do
+
+````r
+```{r sepal-width-length, fig.cap='Relation between sepal width and length in three species of _Iris_.'}
+iris %>%
+    ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+    geom_point()
+```
+````
+
+When this file will be processed, it will create an image file (`figures/sepal-width-length.png`) with the default dimension and the caption specified by the value of the `fig.cap` argument. You can use markdown formatting within the captions of your figures. This figure will have the label `fig:sepal-width-length` that we will be able to use for cross referencing (see below).
+
+If you wish to incorporate a figure that is not generated by code (a photo of your field site or study organism), using the function `knitr::include_graphics()` takes care of many details for you, and generates labels and captions as if it was generated by code.
+
+````r
+```{r iris-picture}
+knitr::include_graphics("figures/iris.jpg")
+```
+````
+
+### How to deal with tables?
+
+To generate tables, `knitr` comes with the function `kable` that might be sufficient to make simple tables to represent data frames within your report. However, there are many packages that provide more sophisticated approaches to display and format tabular data within your reports. This [page](https://hughjonesd.github.io/huxtable/design-principles.html) provides an overview of the capabilities of the different packages.
+
+````r
+```{r iris-table}
+iris %>%
+    group_by(Species) %>%
+    summarize(sepal_length = mean(Sepal.Length),
+              sepal_width = mean(Sepal.Width)) %>%
+    knitr::kable(caption = "Mean sepal width and length for three species of _Iris_.")
+```
+````
+
+Similarly to figures, when this is processed by knitr, the table will have the `tab:iris-table` label that can be used for cross-referencing.
+
+
+### How to deal with cross-references?
+
+Use the `\@ref(label)` syntax. For instance
+
+```
+On average _setosa_ has wider and shorter sepals than the other species
+(Fig. \@ref(fig:sepal-width-length), Table \@ref(tab:iris-table)).
+```
+
+### How to deal with citations?
+
+You need two things: a BibTeX file that contains all the citations you use in your manuscript and a CSL (Citation Style Language) file that specifies the format of your citation. Software citation managers such as Zotero or Mendeley provide options to generate BibTeX files for your citations. CSL files exist for most journals, and can be downloaded from: https://www.zotero.org/styles. This is a convenient search interface provided by Zotero but you do not need to use Zotero to download or use these files.
+
+## Where can I find more information?
+
+* The RStudio Markdown website: http://rmarkdown.rstudio.com/
+* The bookdown website: https://bookdown.org/yihui/bookdown/
+
+
+
+# Documenting and managing dependencies
+
+Reproducibility is also about making sure someone else can re-use your code to obtain the same results as yours. Understanding why your analysis may not lead to the same results on a different computer can be useful to determine how careful you need to be in documenting your setup.
+
+For someone else to be able to reproduce the results included in your report, you need to provide more than the code and the data. You also need to document the exact versions of all the packages, libraries, and software you used, and potentially your operating system as well as your hardware.
+
+R itself is very stable, and the core team of developer takes backward compatibility (that old code works with recent version of R) very seriously. However, default values in some functions have changed, and new functions get introduced regularly. If you wrote your code on a recent version of R and give it to someone who hasn't upgraded recently, they may not be able to run your code. If R is stable, the packages are much less stable. New functionalities get introduced with each versions, some functions get deprecated, and defaults options change. Code written for one version of a package may produce very different results with a more recent version.
+
+With R, the simplest (but useful and important) approach to document your dependencies is to report the output of `sessionInfo()` (or `devtools::session_info()`). Among other information, this will show all the packages (and their versions) that are loaded in the session you used to run your analysis. If someone wants to recreate your analysis, they will know which packages they will need to install. The `checkpoint` package provides a way to download all the packages at a given date from CRAN. Thus, from the list of packages provided by `sessionInfo()`, they could recreate your setup. It however makes two important assumptions: all your packages were up-to-date with CRAN at the time of your analysis; you were not using packages that are not available from CRAN (e.g. development version directly from GitHub).
+
+Another approach is to use the `packrat` package. This package creates a library (a collection of packages) directly within your analysis directory. It increases the size of your project as all the source code for the packages is included, but it ensures that someone can recreate more reliably the same environment as the one you used for your analysis. It also makes it easier because the installation of these packages is fully automated for the person wanting to have the same setup.
+
+A step further in complexity is to use Docker. With Docker you recreate an entire operating system with all the software and packages needed for your analysis. It is more technical to set up but it allows you to distribute the exact same environment as the one you used. If you want others to be able reproduce your results, and your analysis depends on software that can be difficult to install, it is an option that might be worth exploring.
+
+
+---
+
+Resources:
+* Best practices for Scientific Computing (http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
+* Good enough practices for Scientific Computing (https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
+* 10 simple rules for reproducible computational research: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285
+* A quick guide to organizing computational biology projects: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424
+* Ten Simple Rules for Digital Data Storage (http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005097)
