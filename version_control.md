@@ -6,23 +6,28 @@ particular version of your code in order to verify or reproduce the
 analysis used for a published paper, or to identify where you introduced
 a change which has caused problems in your code at a later stage.
 
-Version control provides a structured and transparent means of tracking
-changes to code and other files. Although it was developed for use in
-software development it is equally applicable to scientific programming.
-Using version control allows you to back up old versions of a script
-while keeping your workspace clean. By recording snapshots of a project
-at particular points in time, you can create a record of your project’s
+Anyone who has wrestled with multiple versions of a document or script
+named by appending the word ``final'' will know how quickly such naming
+conventions can
+[escalate into absurdity](http://phdcomics.com/comics.php?f=1531).
+[Version control](https://en.wikipedia.org/wiki/Version_control)
+provides a structured and transparent means of tracking changes to code
+and other files. Although it was developed for use in software
+development it is equally applicable to scientific programming.  Using
+version control allows you to back up old versions of files while
+keeping your workspace clean. By recording snapshots of a project at
+particular points in time, you can create a record of your project’s
 development. Version control also facilitates collaboration when used
 within project teams or when contributing to open source software
 projects.
 
-**Version control in the cloud**
+**Version control with cloud file storage services**
 
 Some cloud services such as Google Drive and Dropbox offer access to a
-file’s version history, backing up versions for a limited time period,
+file’s version history, backing up versions for a limited time,
 usually 30 days, and allowing restoration of previous versions within
 this time frame. While this can be a useful option for managing recent
-changes, for example to recover a previous version of a given
+changes, for example to recover a previous version of a
 document, we don't recommend this route because there is limited
 control over revisions.
 
@@ -31,7 +36,7 @@ control over revisions.
 Version control software is designed to help you to manage your file
 revisions. A wide range of version control software, both open source
 and proprietary, is available. In this guide we’ll focus on the widely
-used open-source software called *git*.
+used open source software called [*git*](https://en.wikipedia.org/wiki/Git).
 
 Git is a distributed version control system, which means that each user
 interacts with a standalone copy of the versioned files, called a
@@ -42,13 +47,13 @@ is easily integrated into your normal workflow.
 
 Git is suitable for managing files which are largely text-based, such as
 code or text files with simple formatting like RMarkdown. It can also be
-used to store versions for assets such as graphics. Tracking changes in
+used to store versions for other files such as graphics. Tracking changes in
 documents with extended file formats such as Word documents is better
 done using built-in revision control, although you can store file
 versions using git.
 
 Git is not recommended for use with large files such as databases due to
-the storage and bandwidth required. Git Large File Storage (Git LFS) is
+the storage and bandwidth required. [Git Large File Storage (Git LFS)](https://git-lfs.github.com/) is
 an extension to git that can be used to manage large files by storing
 them outside your git repository, ensuring that the repository does not
 become unmanageably large.
@@ -66,35 +71,39 @@ become unmanageably large.
     Options/Preferences &gt; Git/SVN and make sure that the path to
     the git executable is correctly specified.
 
-**Git repository hosting services**
+**Version control repository hosting services**
 
-Git is sometimes confused with *GitHub*, which is an online hosting
-service for git repositories. There are a range of git hosting services,
-including GitHub, GitLab and Bitbucket. These services allow you to
-create a remote copy of your local git repository and to use it as an
+Git is sometimes confused with *GitHub*, which is a web-based hosting
+service for git repositories. There are a range of version control repository hosting services,
+including GitHub, GitLab, Bitbucket, and Savannah. These services allow you to
+create a remote copy of your local version control repository and to use it as an
 off-site backup and archive. It’s easy to make your work available to
 collaborators through these services.
 
-Git hosting services offer a choice between public and private
-repositories. The former can be used for publicly accessible work e.g.
-open-source software projects, while the latter may be more suitable for
-sensitive or unpublished work.
+Version control repository hosting services offer a choice between public and private
+repositories. The former can be used for publicly accessible work,
+while the latter may be more suitable for sensitive or unpublished
+work. Public repositories are visible to anyone through the hosting
+service; however, the owner of the repository retains full control
+over the contents of the repository.
+
 
 Currently, GitHub provides unlimited private repositories for
 educational users
 [*https://education.github.com/discount\_requests/new*](https://education.github.com/discount_requests/new)
 
-GitHub provides many other features including as file preview and
-rendering, file management through a web browser interface and website
-hosting. GitHub is also integrated with the code archiving service,
-Zenodo.
+Repository hosting services such as GitHub provide many other features
+including file preview and rendering, submitting change requests
+through the web browser interface, issue tracking, wiki-style
+documentation and website hosting. GitHub is also integrated with the
+open access data repository service, Zenodo.
 
 **Git and the command line**
 
 While git can be used through software with a graphical user interface
 such as RStudio, there are occasions when you’ll need to use the command
 line. These include git configuration and setting up remote
-repositories. You can access the command line (Terminal in MacOS or
+repositories. You can access the command line (Terminal in MacOS and Linux or
 Command Prompt in Windows) from RStudio by going to Tools &gt; Shell…
 
 **Version control workflow**
@@ -129,8 +138,8 @@ We describe these steps in more detail below.
 A git repository is simply a directory on your computer with some hidden
 files for bookkeeping. You can create a git repository from scratch when
 you create an RStudio project. You can also clone git repositories from
-existing projects on GitHub or create them directly using the command
-line.
+existing repositories (such as those on GitHub) or create them directly
+using the command line.
 
 If you have set up a version-controlled project in RStudio, the
 operations described below are available from the “Git” tab within the
@@ -157,7 +166,7 @@ to specify a commit.
 While a local git repository can help you to track changes to files, in
 order to back up your version history and share code with others you’ll
 want to link your repository to a remote repository. Syncing your local
-repository to a remote will archive your code and provide a centralised
+repository to a remote repository will archive your code and provide a centralised
 store for your project, allowing you to share your work or to access it
 from another computer.
 
@@ -194,22 +203,25 @@ commit to tell git to return your working directory to the state
 captured by that commit. You can then work with your code as it was at
 that point in time.
 
-*Using git to collaborate*
+*Using version control to collaborate*
 
-When you collaborate with git, each individual collaborator works with
-their own repository and you need to decide how to work together. There
-are a couple of alternative models:
+There are a number of alternative models for collaborating when using
+version control. When you use a distributed system such as git, each
+individual collaborator works with their own repository and you need to
+decide how to combine your work. A couple of possible workflows are:
 
-1.  *Shared repository*: everyone has push access to the same remote
-    repository and must coordinate their changes. Changes made by
-    other collaborators must be *pulled* into the local repository and
-    merged before you can push to the remote.
+1.  Everyone connects their local repository to the same remote
+    repository and must coordinate their changes. Changes to the
+    central repository must be integrated into a user’s local
+    repository before they can submit their own changes to the remote
+    repository.
 
-2.  *Fork and pull request*: individuals work on separate *forks* of the
-    remote repository and use *pull requests* to merge their work into
-    the main repository. This model allows a formalised review process
-    before changes are merged and is often used in
-    open-source projects.
+2.  Individual contributors create a copy or *fork* of the main
+    repository and use this as their remote repository. They must send
+    a request to the maintainer of the main repository to incorporate
+    their changes into the main repository. This model allows a
+    formalised review process before changes are integrated and is
+    often used in open source projects.
 
 **Going further with version control**
 
