@@ -46,7 +46,7 @@ There are many many different posts on reproducible workflows. This document col
 - BES guidelines as a start
 - Added Wichhams etc paper
 
-However because of this my workflow has a destinctly ecological feel along with the tidyverse approach of tooling. I apologise for this in advance. If you are not a R user I would recommend finding another workflow with the same components.
+However because of this my workflow has a destinctly ecological feel along with the tidyverse approach of [tooling](https://style.tidyverse.org/index.html). I apologise for this in advance. If you are not a R user I would recommend finding another workflow with the same components.
 
 # Overview
 
