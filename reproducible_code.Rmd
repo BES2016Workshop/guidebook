@@ -1,19 +1,140 @@
 ---
-layout: page
-title: The Statistics Network
-subtitle: Some background
+title: 'Reproducible code'
+subtitle: 'Draft'
+Author One: Anthony Davidson, anthony.davidson@canberra.edu.au
+date: "April 2019"
+output:
+  html_document:
+    theme: journal
+  pdf_document: default
+  word_document:
+    fig_caption: yes
+editor_options:
+  chunk_output_type: console
+bibliography: reproduce.bib
 ---
 
-# Report writing reproducible reports
+```{r global-options, message=FALSE, warning=FALSE, include=FALSE}
+# export .r code only
+# knitr::purl("./Davidson_2019_BeechForest.Rmd")
 
-Since the development of R and RStudio (and a magnitude of other IT changes) there are now tools for working with issues to do with [reproducibility](https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970). Leading ecological journals have also identified this as an key issue in many conservation and enviromental issues (*cite*)
+# render draft to webpage
+# rmarkdown::render(input = "Davidson_2019_BeechForest.Rmd",
+#                   output_format = "html_document",
+#                   output_file = "Davidson_2019_t.html")
 
-# Key References
+#document global rules
+knitr::opts_chunk$set(comment=NA,
+                      echo=FALSE,
+                      message=FALSE, 
+                      warning=FALSE)
+# how do I do this??
+# ,eval = FALSE,include = FALSE
+
+# libraries needed
+# source("./Rcode/r-packages-needed.R", echo = FALSE)
+
+# themes
+# source("./Rcode/davidson-2019-theme.r", echo = FALSE)
+
+#overall code
+# source("./Rcode/manuscript-source-code.R", echo = FALSE)
+```
+
+There are many many different posts on reproducible workflows. This document collects the current resources avaliable in R and RMarkdown. I have developed this document from a combination of different git repositories:
+
+- BES guidelines as a start
+- Added Wichhams etc paper
+
+However because of this my workflow has a destinctly ecological feel along with the tidyverse approach of tooling. I apologise for this in advance. If you are not a R user I would recommend finding another workflow with the same components.
+
+# Overview
+
+Since the development of R and RStudio (and a magnitude of other IT changes happening at the same time) there are now tools for working with issues to do with [reproducibility](https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970). There are many blogs from a simple web search. 
+
+Here is a collection of the posts I have drawn inspiration from:
+
+- [R bloggers post](https://www.r-bloggers.com/reproducible-research-and-r-workflow/): Jeromy Anglim
+- [Reproducible workflows in RStudio](https://cyberhelp.sesync.org/basic-git-lesson/2016/08/25/)
+- [R workflow](https://maraaverick.rbind.io/2017/09/r-workflow-fun/): Mara Averick
+- [Methods in Ecology](https://methodsblog.com/2016/10/05/reproducibility-with-r/)
+- [workflow general tips](https://csgillespie.github.io/efficientR/workflow.html)
+- [Data Science and R/Python](https://community.rstudio.com/t/data-science-project-template-for-r/3230)
+- [Truely reproducible](https://timogrossenbacher.ch/2017/07/a-truly-reproducible-r-workflow/)
+- [EEB313H1](https://uoftcoders.github.io/rcourse/lec16-rmarkdown.html)
+
+#### Journals have taken this up too:
+
+* Best practices for Scientific Computing (http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
+
+* Good enough practices for Scientific Computing (https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
+
+* 10 simple rules for reproducible computational research: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285
+* A quick guide to organizing computational biology projects: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424
+* Ten Simple Rules for Digital Data Storage (http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005097)
+* The Reproducible Research CRAN Task View: (https://cran.r-project.org/web/views/ReproducibleResearch.html)
+
+
+#### And even leading ecological journals have also identified this as an key issue in many conservation and enviromental issues:
+
+##### [@cassey2006]
+
+
+### [@nakagawa2015] 
+
+
+### [@zotero-6387]
+
+
+# Workflow options
+
+- [Packaging data publication](https://peerj.com/preprints/3192/)
+
+- [Tidytools package]()
+
+## Coding groups
+
+- [Uni of Toronto Coders](https://github.com/UofTCoders)
+
+# Software options
+
+rOpenSci [is a non-profit initiative founded in 2011 by Karthik Ram, Scott Chamberlain, and Carl Boettiger to make scientific data retrieval reproducible. Over the past seven years we have developed an ecosystem of open source tools, we run annual unconferences, and review community developed software.](https://ropensci.org/about/)
+
+They have produced a great interface for reproducible packages in R with documentation. The key software and packages I use for my workflow are:
+
+## File building
+
+Im not sure what this is actually meant to represent but I see these options as packages making [packages](https://wlandau.github.io/2016/06/14/workflow/)
+
+### packrat
+
+In mid-August of 2016, Eric Nantz of the R-Podcast converted me to packrat (by Kevin Ushey and others at RStudio), a package that lengthens the shelf life of R projects. [Packrat](https://rstudio.github.io/packrat/) maintains local snapshots of dependencies so that your project won't break when external packages are updated. Just be sure your current working directory is the root directory of your project when you run remake::make() or the Makefile. Also, if you use a shell.sh with your Makefile, be sure to modify module load R so that it points to the version of R corresponding to your packrat library. You can learn more about packrat with the hands-on walkthrough.
+
+### ProjectTemplate
+
+- [ProjectTemplate](https://cran.r-project.org/web/packages/ProjectTemplate/ProjectTemplate.pdf) and the webpage is [here](http://projecttemplate.net/).
+- A workshop using this [package](https://github.com/jeromyanglim/leuven2016rworkshop)
+
+## Packages
+
+Hadley wickham book on [R Packages](http://r-pkgs.had.co.nz/).
+
+### R
+
+- [rrtools](https://github.com/benmarwick/rrtools)
 
 
 
-# Report options
+## Version control
 
+
+
+## Markdown
+
+
+
+
+# Additional resources for reference
 
 ## What's a reproducible report?
 
@@ -23,16 +144,11 @@ This manuscript can be a scientific article, a conference presentation, a techni
 
 Typically a report contains code for data manipulation, data analysis, and figure generation alongside the text that constitutes the heart of the report. Because of this hybrid nature, if left unchecked, this mix can lead to a big mess that can be difficult to maintain and debug. In this guide, we will provide you with some advice on how to keep your report manageable.
 
-
 ---
-
 Box xx: What is the difference between repeatability and reproducibility?
 
 **Repeatability** describes how close are the results of an experiment conducted under the same conditions (same instruments, same operators, etc.). **Reproducibility** describes how close are the results of an experiment conducted under similar but different conditions. Repeatability ensures that you would obtain similar results when running your code on your own laptop at different times; while reproducibility ensures that giving your code to someone else would allow them to obtain the same results as yours.
-
 ---
-
-
 
 ## Why a reproducible report?
 
@@ -176,15 +292,3 @@ Another approach is to use the `packrat` package. This package creates a library
 ## Use containers to share your setup
 
 A step further in complexity is to use Docker. With Docker you recreate an entire operating system with all the software, data, and packages needed for your analysis. It is more technical to set up but it allows you to distribute the exact same environment as the one you used. If you want others to be able reproduce your results, and your analysis depends on software that can be difficult to install, it is an option that might be worth exploring.
-
-
----
-
-Resources:
-
-* Best practices for Scientific Computing (http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
-* Good enough practices for Scientific Computing (https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
-* 10 simple rules for reproducible computational research: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285
-* A quick guide to organizing computational biology projects: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424
-* Ten Simple Rules for Digital Data Storage (http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005097)
-* The Reproducible Research CRAN Task View: (https://cran.r-project.org/web/views/ReproducibleResearch.html)
