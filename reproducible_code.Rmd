@@ -95,6 +95,7 @@ Here is a collection of the posts I have drawn inspiration from:
 ## Coding groups
 
 - [Uni of Toronto Coders](https://github.com/UofTCoders)
+  -[R course](https://github.com/UofTCoders/rcourse)
 
 # Software options
 
