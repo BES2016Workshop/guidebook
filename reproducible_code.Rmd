@@ -11,6 +11,10 @@ Since the development of R and RStudio (and a magnitude of other IT changes) the
 # Key References
 
 
+
+# Report options
+
+
 ## What's a reproducible report?
 
 For the purposes of this guide, a report is a scientific document that contains not only the text that makes up the manuscript, but also the code that generates the figures and the statistics that are reported in your manuscript. Ideally, the report is part of a self-contained project that may contain your data, your initial exploratory analyses, the final product, and the code needed to generate them.
