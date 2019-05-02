@@ -1,7 +1,7 @@
 ---
 layout: page
-title: The Statistics Network
-subtitle: Some background
+title:  Reproducible guidelines
+subtitle: British Ecological Society: Some background 2016 +
 ---
 
 # Report writing reproducible reports
@@ -18,7 +18,6 @@ For the purposes of this guide, a report is a scientific document that contains 
 This manuscript can be a scientific article, a conference presentation, a technical report, or a document to share your progress with your collaborators. The end product may not show any code and therefore it may not look like it was generated differently from other documents.
 
 Typically a report contains code for data manipulation, data analysis, and figure generation alongside the text that constitutes the heart of the report. Because of this hybrid nature, if left unchecked, this mix can lead to a big mess that can be difficult to maintain and debug. In this guide, we will provide you with some advice on how to keep your report manageable.
-
 
 ---
 
