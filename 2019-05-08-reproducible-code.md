@@ -1,15 +1,250 @@
 ---
-layout: page
-title: The Statistics Network
-subtitle: Some background
+title: Reproducible workflow
+subtitle: Draft 
+layout: post
+tags: ["phd", "overview","infrastructure", "statistics", "drafts"]
 ---
 
-# Report writing reproducible reports
+There are many many different posts on reproducible workflows. This document collects the current resources avaliable in R and RMarkdown. I have started this document from a combination of different git repositories:
 
-Since the development of R and RStudio (and a magnitude of other IT changes) there are now tools for working with issues to do with [reproducibility](https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970). Leading ecological journals have also identified this as an key issue in many conservation and enviromental issues (*cite*)
+- [BES guidelines](https://github.com/BES2016Workshop/guidebook)
 
-# Key References
+However because of this my workflow has a distinctly ecological feel along with the tidyverse approach of [tooling](https://style.tidyverse.org/index.html). I apologise for this in advance. If you are not a R user I would recommend modifying this workflow or finding another workflow with the same components but in your field.
 
+# Overview
+
+Since the development of R and RStudio (and a magnitude of other IT changes happening at the same time) there are now tools for working with issues to do with [reproducibility](https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970). There are many blogs from a simple web search. 
+Here is a collection of the posts I have drawn inspiration from:
+
+- [R bloggers post](https://www.r-bloggers.com/reproducible-research-and-r-workflow/): Jeromy Anglim
+- [Reproducible workflows in RStudio](https://cyberhelp.sesync.org/basic-git-lesson/2016/08/25/)
+- [R workflow](https://maraaverick.rbind.io/2017/09/r-workflow-fun/): Mara Averick
+- [Methods in Ecology](https://methodsblog.com/2016/10/05/reproducibility-with-r/)
+- [workflow general tips](https://csgillespie.github.io/efficientR/workflow.html)
+- [Data Science and R/Python](https://community.rstudio.com/t/data-science-project-template-for-r/3230)
+- [Truely reproducible](https://timogrossenbacher.ch/2017/07/a-truly-reproducible-r-workflow/)
+- [EEB313H1](https://uoftcoders.github.io/rcourse/lec16-rmarkdown.html)
+- [Good enough practices for Scientific Computing] (https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
+
+#### General databases
+
+rOpenSci [is a non-profit initiative founded in 2011 by Karthik Ram, Scott Chamberlain, and Carl Boettiger to make scientific data retrieval reproducible. Over the past seven years we have developed an ecosystem of open source tools, we run annual conferences, and review community developed software.](https://ropensci.org/about/)
+
+[The Reproducible Research CRAN Task View] (https://cran.r-project.org/web/views/ReproducibleResearch.html)
+
+They have produced a great interface for reproducible packages in R with documentation. 
+
+##### PLOS have taken this up too:
+
+- [Best practices for Scientific Computing] (http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
+
+- [10 simple rules for reproducible computational research] http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285
+
+- [A quick guide to organizing computational biology projects] http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424
+
+- [Ten Simple Rules for Digital Data Storage] (http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005097)
+
+#### And even leading ecological journals have also identified this as an key issue in many conservation and enviromental issues:
+
+##### [@cassey2006]
+
+
+### [@nakagawa2015] 
+
+
+### [@zotero-6387]
+
+## Coding groups
+
+- [Uni of Toronto Coders](https://github.com/UofTCoders)
+  -[R course](https://github.com/UofTCoders/rcourse)
+  
+- [UBC statistics course](http://stat545.com/Classroom/)
+
+With all the resources above I have created a evolving "workflow" for my research.
+
+# My Workflow
+
+So with a magnitude of grey literauture and a selective group of research guides I have thought about this problem in stages. The first stage is the research inforstructure. I think of this as the building blocks of all research projects (reports, manuscripts, etc). There are then choices between the types of software, packages and other tools I use within this inforstructure. The workflow is the timeline that links these components into a cronolocigical order. 
+
+- Inforstructure
+
+- Software
+
+- Tools
+
+- Packages
+
+
+- [Packaging data publication](https://peerj.com/preprints/3192/)
+
+- [Tidytools package]()
+
+# Inforstructure
+
+# Software
+
+The key software and packages I use for my workflow are:
+
+## File building
+
+Im not sure what this is actually meant to represent but I see these options as packages making [packages](https://wlandau.github.io/2016/06/14/workflow/)
+
+### packrat
+
+In mid-August of 2016, Eric Nantz of the R-Podcast converted me to packrat (by Kevin Ushey and others at RStudio), a package that lengthens the shelf life of R projects. [Packrat](https://rstudio.github.io/packrat/) maintains local snapshots of dependencies so that your project won't break when external packages are updated. Just be sure your current working directory is the root directory of your project when you run remake::make() or the Makefile. Also, if you use a shell.sh with your Makefile, be sure to modify module load R so that it points to the version of R corresponding to your 'packrat' library. You can learn more about packrat with the hands-on walk-through.
+
+### ProjectTemplate
+
+- [ProjectTemplate](https://cran.r-project.org/web/packages/ProjectTemplate/ProjectTemplate.pdf) and the webpage is [here](http://projecttemplate.net/).
+- A workshop using this [package](https://github.com/jeromyanglim/leuven2016rworkshop)
+
+## Packages
+
+**FrOM R4DS book:** One day you will need to quit R, go do something else and return to your analysis the next day. One day you will be working on multiple analyses simultaneously that all use R and you want to keep them separate. One day you will need to bring data from the outside world into R and send numerical results and figures from R back out into the world. To handle these real life situations, you need to make two decisions:
+
+1.  What about your analysis is "real", i.e. what will you save as your 
+    lasting record of what happened?
+
+1.  Where does your analysis "live"?
+
+The project file in RStudio helps with this hugely. THis is how that file deals with the problem.
+
+### Rstudio .Rproj
+
+As a beginning R user, it's OK to consider your environment (i.e. the objects listed in the environment pane) "real". However, in the long run, you'll be much better off if you consider your R scripts as "real". 
+
+With your R scripts (and your data files), you can recreate the environment. It's much harder to recreate your R scripts from your environment! You'll either have to retype a lot of code from memory (making mistakes all the way) or you'll have to carefully mine your R history.
+
+To foster this behaviour, I highly recommend that you instruct RStudio not to preserve your workspace between sessions:
+
+```{r, echo = FALSE, out.width = "75%"}
+knitr::include_graphics("screenshots/rstudio-workspace.png")
+```
+
+This will cause you some short-term pain, because now when you restart RStudio it will not remember the results of the code that you ran last time. But this short-term pain will save you long-term agony because it forces you to capture all important interactions in your code. There's nothing worse than discovering three months after the fact that you've only stored the results of an important calculation in your workspace, not the calculation itself in your code. 
+
+There is a great pair of keyboard shortcuts that will work together to make sure you've captured the important parts of your code in the editor:
+
+1. Press Cmd/Ctrl + Shift + F10 to restart RStudio.
+2. Press Cmd/Ctrl + Shift + S to rerun the current script.
+
+I use this pattern hundreds of times a week.
+
+## Where does your analysis live?
+
+R has a powerful notion of the __working directory__. This is where R looks for files that you ask it to load, and where it will put any files that you ask it to save. RStudio shows your current working directory at the top of the console:
+
+```{r, echo = FALSE, out.width = "50%"}
+knitr::include_graphics("screenshots/rstudio-wd.png")
+```
+
+And you can print this out in R code by running `getwd()`:
+
+```{r eval = FALSE}
+getwd()
+#> [1] "/Users/hadley/Documents/r4ds/r4ds"
+```
+
+As a beginning R user, it's OK to let your home directory, documents directory, or any other weird directory on your computer be R's working directory. But you're six chapters into this book, and you're no longer a rank beginner. Very soon now you should evolve to organising your analytical projects into directories and, when working on a project, setting R's working directory to the associated directory.
+
+__I do not recommend it__, but you can also set the working directory from within R:
+
+```{r eval = FALSE}
+setwd("/path/to/my/CoolProject")
+```
+
+But you should never do this because there's a better way; a way that also puts you on the path to managing your R work like an expert.
+
+R experts keep all the files associated with a project together --- input data, R scripts, analytical results, figures. This is such a wise and common practice that RStudio has built-in support for this via __projects__.
+
+Let's make a project for you to use while you're working through the rest of this book. Click File > New Project, then:
+
+```{r, echo = FALSE, out.width = "50%"}
+knitr::include_graphics("screenshots/rstudio-project-1.png")
+knitr::include_graphics("screenshots/rstudio-project-2.png")
+knitr::include_graphics("screenshots/rstudio-project-3.png")
+```
+
+Call your project `r4ds` and think carefully about which _subdirectory_ you put the project in. If you don't store it somewhere sensible, it will be hard to find it in the future!
+
+Once this process is complete, you'll get a new RStudio project just for this book. Check that the "home" directory of your project is the current working directory:
+
+```{r eval = FALSE}
+getwd()
+#> [1] /Users/hadley/Documents/r4ds/r4ds
+```
+
+Whenever you refer to a file with a relative path it will look for it here. 
+
+Now enter the following commands in the script editor, and save the file, calling it "diamonds.R". Next, run the complete script which will save a PDF and CSV file into your project directory. Don't worry about the details, you'll learn them later in the book.
+
+```{r toy-line, eval = FALSE}
+library(tidyverse)
+
+ggplot(diamonds, aes(carat, price)) + 
+  geom_hex()
+ggsave("diamonds.pdf")
+
+write_csv(diamonds, "diamonds.csv")
+```
+
+Quit RStudio. Inspect the folder associated with your project --- notice the `.Rproj` file. Double-click that file to re-open the project. Notice you get back to where you left off: it's the same working directory and command history, and all the files you were working on are still open. Because you followed my instructions above, you will, however, have a completely fresh environment, guaranteeing that you're starting with a clean slate.
+
+In your favorite OS-specific way, search your computer for `diamonds.pdf` and you will find the PDF (no surprise) but _also the script that created it_ (`diamonds.R`). This is huge win! One day you will want to remake a figure or just understand where it came from. If you rigorously save figures to files __with R code__ and never with the mouse or the clipboard, you will be able to reproduce old work with ease!
+
+## Paths and directories
+
+Paths and directories are a little complicated because there are two basic styles of paths: Mac/Linux and Windows. There are three chief ways in which they differ:
+
+1.  The most important difference is how you separate the components of the
+    path. Mac and Linux uses slashes (e.g. `plots/diamonds.pdf`) and Windows
+    uses backslashes (e.g. `plots\diamonds.pdf`). R can work with either type
+    (no matter what platform you're currently using), but unfortunately, 
+    backslashes mean something special to R, and to get a single backslash 
+    in the path, you need to type two backslashes! That makes life frustrating, 
+    so I recommend always using the Linux/Mac style with forward slashes.
+
+1.  Absolute paths (i.e. paths that point to the same place regardless of 
+    your working directory) look different. In Windows they start with a drive
+    letter (e.g. `C:`) or two backslashes (e.g. `\\servername`) and in
+    Mac/Linux they start with a slash "/" (e.g. `/users/hadley`). You should
+    __never__ use absolute paths in your scripts, because they hinder sharing: 
+    no one else will have exactly the same directory configuration as you.
+
+1.  The last minor difference is the place that `~` points to. `~` is a
+    convenient shortcut to your home directory. Windows doesn't really have 
+    the notion of a home directory, so it instead points to your documents
+    directory.
+
+## Summary
+
+In summary, RStudio projects give you a solid workflow that will serve you well in the future:
+
+* Create an RStudio project for each data analysis project. 
+
+* Keep data files there; we'll talk about loading them into R in 
+  [data import].
+
+* Keep scripts there; edit them, run them in bits or as a whole.
+
+* Save your outputs (plots and cleaned data) there.
+
+* Only ever use relative paths, not absolute paths.
+
+Everything you need is in one place, and cleanly separated from all the other projects that you are working on.
+
+Hadley wickham book on [R Packages](http://r-pkgs.had.co.nz/).
+
+### R Package vignettes
+
+- [rrtools](https://github.com/benmarwick/rrtools)
+
+## Version control
+
+## Markdown
+
+# Additional resources for reference
 
 ## What's a reproducible report?
 
@@ -19,13 +254,10 @@ This manuscript can be a scientific article, a conference presentation, a techni
 
 Typically a report contains code for data manipulation, data analysis, and figure generation alongside the text that constitutes the heart of the report. Because of this hybrid nature, if left unchecked, this mix can lead to a big mess that can be difficult to maintain and debug. In this guide, we will provide you with some advice on how to keep your report manageable.
 
-
 ---
-
 Box xx: What is the difference between repeatability and reproducibility?
 
 **Repeatability** describes how close are the results of an experiment conducted under the same conditions (same instruments, same operators, etc.). **Reproducibility** describes how close are the results of an experiment conducted under similar but different conditions. Repeatability ensures that you would obtain similar results when running your code on your own laptop at different times; while reproducibility ensures that giving your code to someone else would allow them to obtain the same results as yours.
-
 ---
 
 ## Why a reproducible report?
@@ -39,6 +271,7 @@ Writing a reproducible report allows you to tell a much richer story than the na
 To make your report reproducible, your code will need to be self-contained. As a consequence, you will be able to re-use the code you wrote for one project in another one. Therefore, if initially it might slow you down to make your code reproducible, it is an investment in the future as you will be able to re-use and build upon it in the future. Additionally, others might be able to also re-use your code, and apply it for their own data. Your efforts may speed up the overall scientific process (you or your colleagues won't need to re-invent the wheel for each project), and you could get more citations on your papers.
 
 It can feel daunting to get started with writing a reproducible report because of the technical skills and knowledge required. However, a partially reproducible report is better than a non-reproducible one. So each step you take towards reproducibility is worth taking, and sets you up to take the next one for the next project.
+
 
 ## How to do a report using RMarkdown?
 
@@ -62,6 +295,7 @@ The YAML header is at the top of your file, it is delineated by three dashes (`-
   well as additional information such as the bibliography file and the
   formatting of the list of references.
 * parameters for your report: for instance, you can specify a parameter such that your report will only use a subset of your data so the final product will be generated quickly when you are developing the code for your project. Once your code is working, you can switch to the full dataset.
+
 
 ### Code chunks
 
@@ -168,15 +402,3 @@ Another approach is to use the `packrat` package. This package creates a library
 ## Use containers to share your setup
 
 A step further in complexity is to use Docker. With Docker you recreate an entire operating system with all the software, data, and packages needed for your analysis. It is more technical to set up but it allows you to distribute the exact same environment as the one you used. If you want others to be able reproduce your results, and your analysis depends on software that can be difficult to install, it is an option that might be worth exploring.
-
-
----
-
-Resources:
-
-* Best practices for Scientific Computing (http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
-* Good enough practices for Scientific Computing (https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
-* 10 simple rules for reproducible computational research: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285
-* A quick guide to organizing computational biology projects: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424
-* Ten Simple Rules for Digital Data Storage (http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005097)
-* The Reproducible Research CRAN Task View: (https://cran.r-project.org/web/views/ReproducibleResearch.html)
