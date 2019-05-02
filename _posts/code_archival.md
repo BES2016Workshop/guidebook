@@ -1,4 +1,5 @@
 # Archival and citation of code and data
+
 In many areas of modern research, academic papers form only a part of scholarly output and they frequently do not contain enough information for reproducibility and detailed academic discourse. A more complete description of the research additionally requires the publication of computer code, software version information and supporting data files.
 
 Publication of academic code and data is becoming increasingly common but there are currently no generally accepted standards for *where* and *how* these research objects should be published. Despite obvious shortcomings [1] it is common practice to upload code and data to personal websites that often disappear after a relatively short time.  Even the more modern practice of linking to GitHub repositories are insufficient because there is no guarantee of permanence.

@@ -1,15 +1,14 @@
 ---
 layout: page
 title:  Reproducible guidelines
-subtitle: British Ecological Society: Some background 2016 +
+subtitle: British Ecological Society: Some background 2016+
 ---
+
+These are the giudelines from the BES. Forked from a 2016 repository. The published guidelines are [here]().
 
 # Report writing reproducible reports
 
-Since the development of R and RStudio (and a magnitude of other IT changes) there are now tools for working with issues to do with [reproducibility](https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970). Leading ecological journals have also identified this as an key issue in many conservation and enviromental issues (*cite*)
-
-# Key References
-
+Since the development of R and RStudio (and a magnitude of other IT changes) there are now tools for working with issues to do with [reproducibility](https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970). Leading ecological journals have also identified this as an key issue in many conservation and enviromental issues (*cite*).
 
 ## What's a reproducible report?
 
