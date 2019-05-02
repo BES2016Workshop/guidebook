@@ -90,6 +90,10 @@ The key software and packages I use for my workflow are:
 
 Im not sure what this is actually meant to represent but I see these options as packages making [packages](https://wlandau.github.io/2016/06/14/workflow/)
 
+### Project oriented workflow
+
+[Post](https://www.r-bloggers.com/%F0%9F%93%81-project-oriented-workflow/): Detailed and long.
+
 ### packrat
 
 In mid-August of 2016, Eric Nantz of the R-Podcast converted me to packrat (by Kevin Ushey and others at RStudio), a package that lengthens the shelf life of R projects. [Packrat](https://rstudio.github.io/packrat/) maintains local snapshots of dependencies so that your project won't break when external packages are updated. Just be sure your current working directory is the root directory of your project when you run remake::make() or the Makefile. Also, if you use a shell.sh with your Makefile, be sure to modify module load R so that it points to the version of R corresponding to your 'packrat' library. You can learn more about packrat with the hands-on walk-through.
@@ -98,6 +102,7 @@ In mid-August of 2016, Eric Nantz of the R-Podcast converted me to packrat (by K
 
 - [ProjectTemplate](https://cran.r-project.org/web/packages/ProjectTemplate/ProjectTemplate.pdf) and the webpage is [here](http://projecttemplate.net/).
 - A workshop using this [package](https://github.com/jeromyanglim/leuven2016rworkshop)
+- [A blog post](https://www.r-bloggers.com/in-praise-of-projecttemplate-for-reproducible-research/): Shows very complex file structure. Could it be easier?
 
 ## Packages
 
