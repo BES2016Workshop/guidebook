@@ -5,11 +5,11 @@ layout: page
 tags: ["phd", "overview","infrastructure", "statistics", "drafts"]
 ---
 
-There are many many different posts on reproducible workflows. This document collects the current resources avaliable in R and RMarkdown. I have started this document from a combination of different git repositories:
+There are many many different posts on reproducible workflows. This document collects the current resources available in R and RMarkdown. I have started this document from a combination of different git repositories:
 
 - [BES guidelines](https://github.com/BES2016Workshop/guidebook)
 
-However because of this my workflow has a distinctly ecological feel along with the tidyverse approach of [tooling](https://style.tidyverse.org/index.html). I apologise for this in advance. If you are not a R user I would recommend modifying this workflow or finding another workflow with the same components but in your field.
+However because of this my workflow has a distinctly ecological feel along with the tidyverse approach of [tooling](https://style.tidyverse.org/index.html). I apologies for this in advance. If you are not a R user I would recommend modifying this workflow or finding another workflow with the same components but in your field.
 
 # Overview
 
