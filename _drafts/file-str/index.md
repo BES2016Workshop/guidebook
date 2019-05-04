@@ -1,6 +1,6 @@
 ---
 title: "ChooseFlow"
-subtitle: "A simple explaination on how to use file building tools"
+subtitle: "A simple explanation on how to use file building tools"
 output: html_notebook
 ---
 
