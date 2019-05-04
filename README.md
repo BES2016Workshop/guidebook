@@ -10,3 +10,5 @@ To DO:
 - reference all reproduce guides?
 - reproducibility in IT
 - reproducitibity in datascience
+
+Main info is in -drafts and resources.md file
