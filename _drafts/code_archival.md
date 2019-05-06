@@ -19,6 +19,7 @@ Combined, these features help ensure that all the software citation principles c
 A workshop on how and why to use Zenodo was delivered as part of a British Ecological Society 2016 meeting and self-paced teaching materials are available from [3].
 
 ## References
+
 [1] **Scholarly Context Not Found: One in Five Articles Suffers from Reference Rot**, Klein et al, https://doi.org/10.1371/journal.pone.0115253
 
 [2] **Software citation principles**, Smith et al, https://doi.org/10.7717/peerj-cs.86
