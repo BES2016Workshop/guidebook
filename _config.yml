@@ -9,7 +9,7 @@
 
 # If you are building a GitHub project page then use these settings:
 url: "http://davan690.github.io/reproducible-guidebook"
-baseurl: "/reproducible-guidebook"
+baseurl: ""
 
 # Of course don't forget to change the username and project name to YOUR username and project
 
