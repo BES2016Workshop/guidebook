@@ -17,7 +17,7 @@ A combination of blogs, research articles and guides for reproducible research
 
 - file structure (anthony - in drafts)
 
-- definitions (From nature/science and pnas) - draft not pushed yet
+- definitions (From nature/science and PNAS) - draft not pushed yet
 
 - workflows
     - R
@@ -48,4 +48,3 @@ figures in a paper)." View Karl's tutorial [here](https://kbroman.org/steps2rr).
 ### Meta-analysis
 
 This is used for the lit. review and extended this into a reproducible document.
-
