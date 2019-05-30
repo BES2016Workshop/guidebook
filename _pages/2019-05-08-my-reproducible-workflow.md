@@ -7,7 +7,7 @@ tags: ["phd", "overview","infrastructure", "statistics", "drafts"]
 
 # My Workflow
 
-So with a magnitude of grey literauture and a selective group of research guides I have thought about this problem in stages. The first stage is the research inforstructure. I think of this as the building blocks of all research projects (reports, manuscripts, etc). There are then choices between the types of software, packages and other tools I use within this inforstructure. The workflow is the timeline that links these components into a cronolocigical order. 
+So with a magnitude of grey literature and a selective group of research guides I have thought about this problem in stages. The first stage is the research infrastructure. I think of this as the building blocks of all research projects (reports, manuscripts, etc). There are then choices between the types of software, packages and other tools I use within this inforstructure. The workflow is the timeline that links these components into a cronolocigical order. 
 
 - Inforstructure
 
