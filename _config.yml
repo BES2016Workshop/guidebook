@@ -3,12 +3,12 @@
 # url is the full website URL
 # baseurl is the website's URL without the hostname
 
-# If you are building a simple GitHub user page (https://davan690.github.io/) then use these settings:
-# url: "https://davan690.github.io/"
+# If you are building a simple GitHub user page (https://www.ssnhub.com/) then use these settings:
+# url: "https://www.ssnhub.com/"
 # baseurl: ""
 
 # If you are building a GitHub project page then use these settings:
-url: "http://davan690.github.io/reproducible-guidebook"
+url: "http://www.ssnhub.com/reproducible-guidebook"
 baseurl: ""
 
 # Of course don't forget to change the username and project name to YOUR username and project
@@ -23,11 +23,11 @@ description: Statistical support for researchers creating more reproducible work
 
 # List of links in the navigation bar
 navbar-links:
-  Home: http://davan690.github.io/
+  Home: http://www.ssnhub.com/
   My resources:
-    - General Statistics: https://davan690.github.io/2019-04-27-Ecological-statistics/
-    - Ecological Statistics: https://davan690.github.io/2019-04-27-Ecological-statistics/
-    - Invasive species research: https://davan690.github.io/2019-04-28-Invasive-species-modeling/
+    - General Statistics: https://www.ssnhub.com/2019-04-27-Ecological-statistics/
+    - Ecological Statistics: https://www.ssnhub.com/2019-04-27-Ecological-statistics/
+    - Invasive species research: https://www.ssnhub.com/2019-04-28-Invasive-species-modeling/
   External links:
     - Learn R: "https://datacarpentry.org/"
     - Learn git: "https://www.youtube.com/watch?v=HVsySz-h9r4"
@@ -104,7 +104,7 @@ share-links-active:
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "davan690.github.io"  # eg. "deanattali.com/beautiful-jekyll"
+url-pretty: "www.ssnhub.com"  # eg. "deanattali.com/beautiful-jekyll"
 
 # --- Web Statistics Section --- #
 

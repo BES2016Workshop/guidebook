@@ -4,4 +4,4 @@ title: The Statistics Network
 subtitle: Some background
 ---
 
-See: [The statistics network](https://davan690.github.io/aboutme) 
+See: [The statistics network](https://www.ssnhub.com/aboutme) 
