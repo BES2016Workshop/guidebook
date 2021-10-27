@@ -1,17 +1,19 @@
 ---
-title: Reproducible workflow
+title: Reproducible code
 subtitle: Draft 
 layout: post
 tags: ["phd", "overview","infrastructure", "statistics", "drafts"]
 ---
 
-There are many many different posts on reproducible workflows. This document collects the current resources avaliable in R and RMarkdown. I have started this document from a combination of different git repositories:
-
-- [BES guidelines](https://github.com/BES2016Workshop/guidebook)
-
-However because of this my workflow has a distinctly ecological feel along with the tidyverse approach of [tooling](https://style.tidyverse.org/index.html). I apologise for this in advance. If you are not a R user I would recommend modifying this workflow or finding another workflow with the same components but in your field.
+There are many many different posts on reproducible workflows. This document collects the current resources available in R and RMarkdown. I have started this document from the [BES guidelines](https://github.com/BES2016Workshop/guidebook) and a combination of different git repositories (add all references here). However because of this my workflow has a distinctly ecological feel along with the tidyverse approach of [tooling](https://style.tidyverse.org/index.html). I apologise for this in advance. If you are not a R user I would recommend modifying this workflow or finding another workflow with the same components but in your field.
 
 # Overview
+
+It is just such a big mountain of information.
+
+- table of contents here...
+
+# Best of the Blogs
 
 Since the development of R and RStudio (and a magnitude of other IT changes happening at the same time) there are now tools for working with issues to do with [reproducibility](https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970). There are many blogs from a simple web search. 
 Here is a collection of the posts I have drawn inspiration from:
@@ -26,15 +28,17 @@ Here is a collection of the posts I have drawn inspiration from:
 - [EEB313H1](https://uoftcoders.github.io/rcourse/lec16-rmarkdown.html)
 - [Good enough practices for Scientific Computing] (https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
 
-#### General databases
+# General databases
 
 rOpenSci [is a non-profit initiative founded in 2011 by Karthik Ram, Scott Chamberlain, and Carl Boettiger to make scientific data retrieval reproducible. Over the past seven years we have developed an ecosystem of open source tools, we run annual conferences, and review community developed software.](https://ropensci.org/about/)
 
 [The Reproducible Research CRAN Task View] (https://cran.r-project.org/web/views/ReproducibleResearch.html)
 
-They have produced a great interface for reproducible packages in R with documentation. 
+They have produced a great interface for reproducible packages in R with documentation.
 
-##### PLOS have taken this up too:
+## Journals
+
+### PLOS
 
 - [Best practices for Scientific Computing] (http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
 
@@ -44,15 +48,34 @@ They have produced a great interface for reproducible packages in R with documen
 
 - [Ten Simple Rules for Digital Data Storage] (http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005097)
 
-#### And even leading ecological journals have also identified this as an key issue in many conservation and enviromental issues:
+### Science
+
+
+
+### Nature
+
+
+### PNAS
+
+
+### Medicial Journals
+
+
+### Business Journals
+
+
+
+### Ecology Journals
 
 ##### [@cassey2006]
 
 
-### [@nakagawa2015] 
+#### [@nakagawa2015] 
 
 
-### [@zotero-6387]
+#### [@zotero-6387]
+
+# Courses and tutorials
 
 ## Coding groups
 
@@ -381,7 +404,6 @@ You need two things: a BibTeX file that contains all the citations you use in yo
 * The bookdown website: https://bookdown.org/yihui/bookdown/
 
 
-
 # Documenting and managing dependencies
 
 Reproducibility is also about making sure someone else can re-use your code to obtain the same results as yours. Understanding why your analysis may not lead to the same results on a different computer can be useful to determine how careful you need to be in documenting your setup.
@@ -396,7 +418,6 @@ Documenting and managing the dependencies of your project correctly can be a com
 ## Show the packages you used
 
 With R, the simplest (but useful and important) approach to document your dependencies is to report the output of `sessionInfo()` (or `devtools::session_info()`). Among other information, this will show all the packages (and their versions) that are loaded in the session you used to run your analysis. If someone wants to recreate your analysis, they will know which packages they will need to install.
-
 
 ## Use packages that help recreate your setup
 
