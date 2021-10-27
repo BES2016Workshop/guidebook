@@ -30,6 +30,11 @@ A combination of blogs, research articles and guides for reproducible research
 
 Currently the main info is in `_drafts` and `resources.md` file.
 
+
+### Posts
+
+... coming
+
 ## References
 
 It is important to refer to these resources for supporting information. Feel free to develop and "correct" these resources where appropriate.
