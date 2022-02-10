@@ -1,5 +1,5 @@
 ---
-title: Reproducible workflow
+title: Reproducible database of resources
 subtitle: Draft 
 layout: page
 tags: ["phd", "overview","infrastructure", "statistics", "drafts"]
@@ -24,7 +24,7 @@ Here is a collection of the posts I have drawn inspiration from:
 - [Data Science and R/Python](https://community.rstudio.com/t/data-science-project-template-for-r/3230)
 - [Truely reproducible](https://timogrossenbacher.ch/2017/07/a-truly-reproducible-r-workflow/)
 - [EEB313H1](https://uoftcoders.github.io/rcourse/lec16-rmarkdown.html)
-- [Good enough practices for Scientific Computing] (https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
+- [Good enough practices for Scientific Computing](https://swcarpentry.github.io.good-enough-practices-in-scientific-computing/)
 
 #### General databases
 

@@ -2,3 +2,5 @@
 .Rhistory
 .RData
 .Ruserdata
+.site/*
+_site
