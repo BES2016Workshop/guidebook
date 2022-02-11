@@ -14,6 +14,13 @@ editor_options:
 bibliography: reproduce.bib
 ---
 
+Developed from `@misc{repro-guide,
+title={{Reproducibility in Science: A Guide to enhancing reproducibility in scientific results and writing}},
+howpublished="\url{http://ropensci.github.io/reproducibility-guide/}"
+}`
+
+This takes a combination of reproducible guides, inputs them into a bookdown project and begins to write R scripts to access the dynamic database of reproducibility literature underneath it.
+
 ```{r global-options, message=FALSE, warning=FALSE, include=FALSE}
 # export .r code only
 # knitr::purl("./Davidson_2019_BeechForest.Rmd")

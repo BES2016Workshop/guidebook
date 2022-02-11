@@ -1,0 +1,4 @@
+name: Reproduciblity Guide
+markdown: kramdown
+highlighter: rouge
+baseurl: /reproducibility-guide
